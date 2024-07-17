@@ -12,9 +12,6 @@ body{
 
 #headerSection{
     padding: 18px;
-    /* font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-style: italic; */
 }
 
 #headerSection, h1{
@@ -24,10 +21,6 @@ body{
 hr{
     border-color: black;
 }
-
-/* #bodySection{
-    align-items: center;
-} */
 
 h2{
     color: #EB5B00;
@@ -64,11 +57,7 @@ input{
   #imagepart {
     border: 2px solid black;
     border-radius: 10px;
-    width: 38%;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
-    
+    width: 38%; 
   }
 
   #role{
@@ -84,13 +73,3 @@ input{
     padding: 8px;
     border-radius: 10px;
   }
-
-/* CSS FOR DASHBORAD */
-
-/* #backbtn{
-float: left;
-}
-
-#logoutbtn{
-float: right;
-} */
