@@ -54,3 +54,34 @@ input{
     font-weight: 600;
     border: none;
 }
+
+/* CSS OF REGISTER */
+
+#address {
+    width: 38%;
+  }
+
+  #imagepart {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 38%;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    
+  }
+
+  #role{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 38%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #role, select{
+    padding: 8px;
+    border-radius: 10px;
+  }
+
