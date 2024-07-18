@@ -3,15 +3,16 @@ session_start();
 if (!isset($_SESSION['userdata'])) {
     header("location: ../");
 }
+
 $userdata = $_SESSION['userdata'];
 $groupsdata = $_SESSION['groupsdata'];
 
-if($_SESSION ['userdata'] = $_SESSION['status']==0){
-    $status = '<b style = "color:red" > Not Voted </b>'
+if ($_SESSION['userdata'] = $_SESSION['status'] == 0) {
+    $status = '<b style = "color:red" > Not Voted </b>';
+} else {
+    $status = '<b style = "color:green"> Voted </b>';
 }
-else{
-    $status = '<b style = "color:green"> Voted </b>'
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -53,16 +54,27 @@ else{
             float: right;
         }
 
+        #votebtn {
+            background-color: #3498db;
+            color: white;
+        }
+
         #mainpanel {
             padding: 10px;
+        }
+
+        #voted {
+            background-color: green;
+            color: white;
+            /* border-radius: 5px; */
         }
     </style>
 
     <div id="mainSection">
         <center>
             <div id="headerSection">
-            <a href="../"><button class="backbtn" id="loginbtn"> Back</button></a> 
-            <a href="logout.php"> <button class="logoutbtn" id="loginbtn"> Logout</button></a> 
+                <a href="../"><button class="backbtn" id="loginbtn"> Back</button></a>
+                <a href="logout.php"> <button class="logoutbtn" id="loginbtn"> Logout</button></a>
                 <h1>Online Voting System</h1>
             </div>
         </center>
@@ -89,18 +101,17 @@ else{
                             <form action="../api/vote.php" method="POST">
                                 <input type="hidden" name="gvotes" value="<?php echo $groupsdata[$i]['votes'] ?>">
                                 <input type="hidden" name="gid" value="<?php echo $groupsdata[$i]['id'] ?>">
-                                    <?php 
-                                    if($_SESSION['userdata'] ['status']==0){
-
-                                        ?>
-                                        <input type="submit" name="votebtn" value="vote" id="votebtn" id="loginbtn">
-                                        <?php
-                                    }
-                                    else{
-                                        ?>
-                                        <button disabled type="button" name="votebtn" value="vote" id="loginbtn"></button>
-                                        <?php
-                                    }
+                                <?php
+                                if ($_SESSION['userdata']['status'] == 0) {
+                                ?>
+                                    <input type="submit" name="votebtn" value="vote" id="votebtn" id="loginbtn">
+                                <?php
+                                } else {
+                                ?>
+                                    <button disabled type="button" name="votebtn" value="vote" id="voted" id="loginbtn">Voted</button>
+                                <?php
+                                }
+                                ?>
                             </form>
                         </div>
                         <hr>
