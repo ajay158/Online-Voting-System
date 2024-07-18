@@ -2,7 +2,7 @@
 session_start();
 include("connect.php");
 $mobile = $_POST['mobile'];
-$password = $_POST['number'];
+$password = $_POST['password'];
 $role = $_POST['role'];
 
 $check = mysqli_query($connect, "SELECT * FROM user WHERE mobile = '$mobile' AND password = '$password' AND role = '$role' ");
@@ -13,18 +13,18 @@ if (mysqli_num_rows($check) > 0) {
     $groupsdata = mysqli_fetch_all($groups, MYSQLI_ASSOC);
 
     $_SESSION['userdata'] = $userdata;
-    $_SESSION['groupsdata'];
+    $_SESSION['groupsdata'] = $groupsdata;
 
     echo '
     <script>
-     window.location = "../routes.dashboard.php";
+     window.location = "../routes/dashboard.php";
     </script>
     ';
 } else {
     echo '
     <script>
     alert("Invalid credentials or user not found!");
-    window.location = "../routes/register.html";
+    window.location = "../";
     </script>
     ';
 }

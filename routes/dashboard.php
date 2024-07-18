@@ -7,7 +7,7 @@ if (!isset($_SESSION['userdata'])) {
 $userdata = $_SESSION['userdata'];
 $groupsdata = $_SESSION['groupsdata'];
 
-if ($_SESSION['userdata'] = $_SESSION['status'] == 0) {
+if ($_SESSION['userdata']['status'] == 0) {
     $status = '<b style = "color:red" > Not Voted </b>';
 } else {
     $status = '<b style = "color:green"> Voted </b>';
@@ -84,7 +84,7 @@ if ($_SESSION['userdata'] = $_SESSION['status'] == 0) {
             <div id="profile">
                 <center> <img src="../uploads/<?php echo $userdata['photo'] ?>" height="100" width="100"> </center><br><br>
                 <b>Name: </b> <?php echo $userdata['name'] ?><br><br>
-                <b>Mobile: </b> <?php echo $userdata['mobile'] ?><br><br>
+                <b>Mobile: </b> <?php echo $userdata['password'] ?><br><br>
                 <b>Address: </b> <?php echo $userdata['address'] ?><br><br>
                 <b>Status: </b> <?php echo $status ?><br><br>
 
@@ -95,7 +95,7 @@ if ($_SESSION['userdata'] = $_SESSION['status'] == 0) {
                     for ($i = 0; $i < count($groupsdata); $i++) {
                 ?>
                         <div>
-                            <img style="float: right;" src="../uploads/ <?php echo $groupsdata[$i]['photo'] ?>>" height="100" width="100">
+                            <img style="float: right;" src="../uploads/ <?php echo $groupsdata[$i]['photo'] ?>" height="100" width="100">
                             <b>Group Name: </b><?php echo $groupsdata[$i]['name'] ?> <br><br>
                             <b>Votes: </b> <?php echo $groupsdata[$i]['votes'] ?> <br><br>
                             <form action="../api/vote.php" method="POST">
